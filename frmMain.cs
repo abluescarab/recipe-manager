@@ -15,7 +15,6 @@ using System.Windows.Forms;
  * TODO: Printing
  * TODO: Add icon
  * TODO: Better rating change form (or just click on rating to change)
- * TODO: Save column widths
  */
 
 namespace recipe_manager {
@@ -26,6 +25,14 @@ namespace recipe_manager {
 
 		#region Main
 		private void frmMain_Load(object sender, EventArgs e) {
+			string[] colWidths = Properties.Settings.Default.ColumnWidths.Split(',');
+
+			dgvRecipes.Columns["RecipeName"].Width = Convert.ToInt32(colWidths[0]);
+			dgvRecipes.Columns["RecipeRating"].Width = Convert.ToInt32(colWidths[1]);
+			dgvRecipes.Columns["RecipeCategory"].Width = Convert.ToInt32(colWidths[2]);
+			dgvRecipes.Columns["RecipeServes"].Width = Convert.ToInt32(colWidths[3]);
+			dgvRecipes.Columns["RecipeCountry"].Width = Convert.ToInt32(colWidths[4]);
+			
 			this.Size = new Size(Properties.Settings.Default.WindowWidth, Properties.Settings.Default.WindowHeight);
 			optionsAutoNumber.Checked = Properties.Settings.Default.AutoNumberDirections;
 			optionsSwitchTab.Checked = Properties.Settings.Default.SwitchTabAfterAdd;
@@ -48,6 +55,13 @@ namespace recipe_manager {
 		}
 
 		private void frmMain_FormClosing(object sender, FormClosingEventArgs e) {
+			Properties.Settings.Default.ColumnWidths =
+				dgvRecipes.Columns["RecipeName"].Width.ToString() + "," +
+				dgvRecipes.Columns["RecipeRating"].Width.ToString() + "," +
+				dgvRecipes.Columns["RecipeCategory"].Width.ToString() + "," +
+				dgvRecipes.Columns["RecipeServes"].Width.ToString() + "," +
+				dgvRecipes.Columns["RecipeCountry"].Width.ToString();
+
 			Properties.Settings.Default.Save();
 		}
 

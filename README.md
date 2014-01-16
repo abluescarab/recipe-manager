@@ -16,4 +16,5 @@ A free recipe manager that's simple, fast, and easy to use.
 If you run into any problems, please send me an email at [alana@abluescarab.us](mailto:alana@abluescarab.us) or use the [contact page on my website](http://www.abluescarab.us/contact.php). In particular, I'm looking for SQL errors. If your computer has any issues with the SQL database used in this program, please contact me (**make sure to send me the error message, too!**). Feel free to send me feedback, as well! Every bit of feedback will help me improve this program and others.
 
 ## <a name="changelog"></a>Changelog
-No changes yet.
+##### v0.1.1 / 2014-1-15
+- Added ColumnWidths setting

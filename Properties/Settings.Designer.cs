@@ -92,5 +92,17 @@ namespace recipe_manager.Properties {
                 this["SearchBy"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("125,50,150,50,115")]
+        public string ColumnWidths {
+            get {
+                return ((string)(this["ColumnWidths"]));
+            }
+            set {
+                this["ColumnWidths"] = value;
+            }
+        }
     }
 }
