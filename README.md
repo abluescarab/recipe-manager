@@ -16,10 +16,10 @@ A free recipe manager that's simple, fast, and easy to use.
 If you run into any problems, please send me an email at [alana@abluescarab.us](mailto:alana@abluescarab.us) or use the [contact page on my website](http://www.abluescarab.us/contact.php). In particular, I'm looking for SQL errors. If your computer has any issues with the SQL database used in this program, please contact me (**make sure to send me the error message, too!**). Feel free to send me feedback, as well! Every bit of feedback will help me improve this program and others.
 
 ## <a name="changelog"></a>Changelog
-##### v0.1.1 / 2014-01-15
-- Added ColumnWidths setting
-
 ##### v0.2.0 / 2014-02-12
 - Added printing
 - Goes to the Add tab after deleting last recipe
 - Updated help file
+
+##### v0.1.1 / 2014-01-15
+- Added ColumnWidths setting
