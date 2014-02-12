@@ -6,15 +6,16 @@ using System.Data.SqlClient;
 using System.Data.SqlServerCe;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 /*
- * TODO: Printing
  * TODO: Add icon
  * TODO: Better rating change form (or just click on rating to change)
+ * TODO: Clear View tab after deleting last recipe
  */
 
 namespace recipe_manager {
@@ -156,12 +157,7 @@ namespace recipe_manager {
 		}
 
 		private void btnPrint_Click(object sender, EventArgs e) {
-			try {
-				PrintRecipe();
-			}
-			catch(Exception ex) {
-				MessageBox.Show(ex.Message, "Error");
-			}
+			PrintRecipe();
 		}
 
 		private void btnDelete_MouseHover(object sender, EventArgs e) {
@@ -313,32 +309,18 @@ namespace recipe_manager {
 		#endregion
 
 		#region Functions
+		/// <summary>
+		/// Load the recipes from the database.
+		/// </summary>
 		private void LoadRecipes() {
 			int currentRow = -1;
 
 			this.recipesTableAdapter.Fill(this.recipesdbDataSet.Recipes);
 
-			if(dgvRecipes.SelectedRows.Count > 0) {
-				currentRow = dgvRecipes.CurrentRow.Index;
-			}
-
-			if(currentRow > -1) {
-				dgvRecipes.CurrentCell = dgvRecipes.Rows[currentRow].Cells["RecipeName"];
-				dgvRecipes.Rows[currentRow].Selected = true;
-
-				if(!lblName.Enabled) {
-					foreach(Control c in tabView.Controls) {
-						c.Enabled = true;
-					}
-					foreach(Control c in tabEdit.Controls) {
-						c.Enabled = true;
-					}
-				}
-
-				// TODO: remove when printing is implemented
+			if(dgvRecipes.Rows.Count < 1) {
 				btnPrint.Enabled = false;
-			}
-			else {
+				filePrint.Enabled = false;
+
 				foreach(Control c in tabView.Controls) {
 					c.Enabled = false;
 				}
@@ -366,14 +348,37 @@ namespace recipe_manager {
 
 				AlignLabels();
 			}
+			else {
+				if(!btnPrint.Enabled && !filePrint.Enabled) {
+					btnPrint.Enabled = true;
+					filePrint.Enabled = true;
+				}
 
-			ShowCurrentRecipe();
+				if(dgvRecipes.SelectedRows.Count > 0) {
+					currentRow = dgvRecipes.CurrentRow.Index;
+				}
+
+				if(currentRow > -1) {
+					dgvRecipes.CurrentCell = dgvRecipes.Rows[currentRow].Cells["RecipeName"];
+					dgvRecipes.Rows[currentRow].Selected = true;
+
+					if(!lblName.Enabled) {
+						foreach(Control c in tabView.Controls) {
+							c.Enabled = true;
+						}
+						foreach(Control c in tabEdit.Controls) {
+							c.Enabled = true;
+						}
+					}
+				}
+
+				ShowCurrentRecipe();
+			}
 		}
 
-		private void PrintRecipe() {
-
-		}
-
+		/// <summary>
+		/// Clear all fields in the Add tab.
+		/// </summary>
 		private void ClearAddFields() {
 			foreach(Control c in tabAdd.Controls) {
 				if(c is TextBox) {
@@ -388,6 +393,9 @@ namespace recipe_manager {
 			rtbAddIngredients.ResetText();
 		}
 
+		/// <summary>
+		/// Show the currently-selected recipe in the View tab.
+		/// </summary>
 		private void ShowCurrentRecipe() {
 			if(dgvRecipes.SelectedRows.Count > 0) {
 				DataGridViewRow row = dgvRecipes.CurrentRow;
@@ -428,6 +436,9 @@ namespace recipe_manager {
 			}
 		}
 
+		/// <summary>
+		/// Delete a recipe.
+		/// </summary>
 		private void DeleteRecipe() {
 			string name = dgvRecipes.CurrentRow.Cells["RecipeName"].Value.ToString();
 
@@ -462,9 +473,57 @@ namespace recipe_manager {
 			}
 		}
 
+		/// <summary>
+		/// Align the country and rating labels to the name.
+		/// </summary>
 		private void AlignLabels() {
 			lblCountry.Left = lblName.Left + lblName.Width;
 			lblRating.Left = lblName.Left + lblName.Width;
+		}
+
+		/// <summary>
+		/// Print the recipe.
+		/// </summary>
+		private void PrintRecipe() {
+			string name = lblName.Text, country = lblCountry.Text, comment = rtbComment.Text,
+ 				serves = lblServes.Text, ingredients = rtbIngredients.Text, directions = rtbDirections.Text;
+
+			Font arial = new Font("Arial", 24, FontStyle.Bold);
+
+			if(dlgPrint.ShowDialog() == DialogResult.OK) {
+				using(PrintDocument p = new PrintDocument()) {
+					p.PrinterSettings = dlgPrint.PrinterSettings;
+
+					p.PrintPage += delegate(object sender1, PrintPageEventArgs e) {
+						Margins margins = new Margins(100, 100, 100, 100);
+
+						p.DefaultPageSettings.Margins = margins;
+						p.DefaultPageSettings.PrinterSettings.PrinterName = dlgPrint.PrinterSettings.PrinterName;
+						p.DocumentName = name;
+
+						int left = margins.Left, width = Convert.ToInt32(p.DefaultPageSettings.PrintableArea.Width) - margins.Right,
+							top  = margins.Top,  height = Convert.ToInt32(p.DefaultPageSettings.PrintableArea.Height) - margins.Bottom;
+
+						using(SolidBrush brush = new SolidBrush(Color.Black)) {
+							e.Graphics.DrawString(name + " (" + country + ")", new Font("Arial", 24, FontStyle.Bold), brush, new RectangleF(left, top, width, height));
+							e.Graphics.DrawString(comment, new Font("Arial", 10, FontStyle.Italic), brush, new RectangleF(left, (top += 50), width, height));
+							e.Graphics.DrawString("Serves:", new Font("Arial", 12, FontStyle.Bold), brush, new RectangleF(left, (top += 50), width, height));
+							e.Graphics.DrawString(serves, new Font("Arial", 12), brush, new RectangleF(left + 65, (top += 1), width, height));
+							e.Graphics.DrawString("Ingredients:", new Font("Arial", 12, FontStyle.Bold), brush, new RectangleF(left, (top += 50), width, height));
+							e.Graphics.DrawString("Directions:", new Font("Arial", 12, FontStyle.Bold), brush, new RectangleF(left + (width / 2), top, width / 2, height));
+							e.Graphics.DrawString(ingredients, new Font("Arial", 12), brush, new RectangleF(left, (top += 25), width / 2, height));
+							e.Graphics.DrawString(directions, new Font("Arial", 12), brush, new RectangleF(left + (width / 2), top, width / 2, height));
+						}
+					};
+
+					try {
+						p.Print();
+					}
+					catch(Exception ex) {
+						MessageBox.Show(ex.Message, "Error");
+					}
+				}
+			}
 		}
 		#endregion
 	}

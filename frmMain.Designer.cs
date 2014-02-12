@@ -118,6 +118,7 @@
 			this.lblAddRating = new System.Windows.Forms.Label();
 			this.lblAddName = new System.Windows.Forms.Label();
 			this.recipesTableAdapter = new recipe_manager.recipesdbDataSetTableAdapters.RecipesTableAdapter();
+			this.dlgPrint = new System.Windows.Forms.PrintDialog();
 			this.menu.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
 			this.splitContainer.Panel1.SuspendLayout();
@@ -167,7 +168,6 @@
 			// 
 			// filePrint
 			// 
-			this.filePrint.Enabled = false;
 			this.filePrint.Image = global::recipe_manager.Properties.Resources.printer;
 			this.filePrint.Name = "filePrint";
 			this.filePrint.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
@@ -530,7 +530,6 @@
 			// btnPrint
 			// 
 			this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnPrint.Enabled = false;
 			this.btnPrint.Image = global::recipe_manager.Properties.Resources.printer;
 			this.btnPrint.Location = new System.Drawing.Point(311, 36);
 			this.btnPrint.Name = "btnPrint";
@@ -1150,6 +1149,10 @@
 			// 
 			this.recipesTableAdapter.ClearBeforeFill = true;
 			// 
+			// dlgPrint
+			// 
+			this.dlgPrint.UseEXDialog = true;
+			// 
 			// frmMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1220,20 +1223,14 @@
 		private System.Windows.Forms.TabPage tabView;
 		private System.Windows.Forms.TabPage tabEdit;
 		private System.Windows.Forms.TabPage tabAdd;
-		private System.Windows.Forms.Label lblName;
 		private System.Windows.Forms.Label lblCategoryLabel;
 		private System.Windows.Forms.Label lblCategories;
 		private System.Windows.Forms.Label lblServesLabel;
-		private System.Windows.Forms.Label lblServes;
 		private System.Windows.Forms.Label lblIngredientsLabel;
 		private System.Windows.Forms.Label lblDirectionsLabel;
-		private System.Windows.Forms.RichTextBox rtbComment;
-		private System.Windows.Forms.RichTextBox rtbIngredients;
-		private System.Windows.Forms.RichTextBox rtbDirections;
 		private System.Windows.Forms.SplitContainer splitContainer;
 		private System.Windows.Forms.Button btnPrint;
 		private System.Windows.Forms.Button btnDelete;
-		private System.Windows.Forms.Label lblCountry;
 		private System.Windows.Forms.Label lblAddName;
 		private System.Windows.Forms.Label lblAddServes;
 		private System.Windows.Forms.Label lblAddCategory;
@@ -1293,6 +1290,13 @@
 		private System.Windows.Forms.BindingSource recipesBindingSource;
 		private recipesdbDataSet recipesdbDataSet;
 		private recipesdbDataSetTableAdapters.RecipesTableAdapter recipesTableAdapter;
+		private System.Windows.Forms.Label lblName;
+		private System.Windows.Forms.Label lblServes;
+		private System.Windows.Forms.RichTextBox rtbComment;
+		private System.Windows.Forms.RichTextBox rtbIngredients;
+		private System.Windows.Forms.RichTextBox rtbDirections;
+		private System.Windows.Forms.Label lblCountry;
+		private System.Windows.Forms.PrintDialog dlgPrint;
 	}
 }
 
