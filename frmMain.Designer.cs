@@ -24,6 +24,7 @@
 		/// </summary>
 		private void InitializeComponent() {
 			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
 			this.menu = new System.Windows.Forms.MenuStrip();
 			this.menuFile = new System.Windows.Forms.ToolStripMenuItem();
 			this.filePrint = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,7 +60,6 @@
 			this.lblSearch = new System.Windows.Forms.Label();
 			this.tabControl = new System.Windows.Forms.TabControl();
 			this.tabView = new System.Windows.Forms.TabPage();
-			this.lblRating = new System.Windows.Forms.Label();
 			this.lblCountry = new System.Windows.Forms.Label();
 			this.btnPrint = new System.Windows.Forms.Button();
 			this.rtbDirections = new System.Windows.Forms.RichTextBox();
@@ -332,11 +332,13 @@
 			this.dgvRecipes.AllowUserToAddRows = false;
 			this.dgvRecipes.AllowUserToDeleteRows = false;
 			this.dgvRecipes.AllowUserToOrderColumns = true;
+			this.dgvRecipes.AllowUserToResizeRows = false;
 			this.dgvRecipes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.dgvRecipes.AutoGenerateColumns = false;
 			this.dgvRecipes.BackgroundColor = System.Drawing.SystemColors.Control;
+			this.dgvRecipes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
 			this.dgvRecipes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			this.dgvRecipes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -353,7 +355,10 @@
 			this.dgvRecipes.MultiSelect = false;
 			this.dgvRecipes.Name = "dgvRecipes";
 			this.dgvRecipes.ReadOnly = true;
+			this.dgvRecipes.RowHeadersVisible = false;
 			this.dgvRecipes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.dgvRecipes.ShowCellErrors = false;
+			this.dgvRecipes.ShowEditingIcon = false;
 			this.dgvRecipes.Size = new System.Drawing.Size(534, 415);
 			this.dgvRecipes.TabIndex = 0;
 			this.dgvRecipes.SelectionChanged += new System.EventHandler(this.recipesView_SelectionChanged);
@@ -373,7 +378,7 @@
 			this.recipeName.HeaderText = "Name";
 			this.recipeName.Name = "recipeName";
 			this.recipeName.ReadOnly = true;
-			this.recipeName.Width = 125;
+			this.recipeName.Width = 165;
 			// 
 			// recipeRating
 			// 
@@ -486,7 +491,6 @@
 			// tabView
 			// 
 			this.tabView.AutoScroll = true;
-			this.tabView.Controls.Add(this.lblRating);
 			this.tabView.Controls.Add(this.lblCountry);
 			this.tabView.Controls.Add(this.btnPrint);
 			this.tabView.Controls.Add(this.rtbDirections);
@@ -506,17 +510,6 @@
 			this.tabView.TabIndex = 0;
 			this.tabView.Text = "View";
 			this.tabView.UseVisualStyleBackColor = true;
-			// 
-			// lblRating
-			// 
-			this.lblRating.AutoSize = true;
-			this.lblRating.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblRating.Location = new System.Drawing.Point(187, 21);
-			this.lblRating.Name = "lblRating";
-			this.lblRating.Size = new System.Drawing.Size(82, 25);
-			this.lblRating.TabIndex = 16;
-			this.lblRating.Text = "☆☆☆☆☆";
-			this.lblRating.Click += new System.EventHandler(this.lblRating_Click);
 			// 
 			// lblCountry
 			// 
@@ -1160,6 +1153,7 @@
 			this.ClientSize = new System.Drawing.Size(915, 484);
 			this.Controls.Add(this.menu);
 			this.Controls.Add(this.splitContainer);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MainMenuStrip = this.menu;
 			this.MinimumSize = new System.Drawing.Size(700, 400);
 			this.Name = "frmMain";
@@ -1235,7 +1229,6 @@
 		private System.Windows.Forms.Label lblAddServes;
 		private System.Windows.Forms.Label lblAddCategory;
 		private System.Windows.Forms.Label lblAddRating;
-		private System.Windows.Forms.Label lblRating;
 		private System.Windows.Forms.Label lblAddCountry;
 		private System.Windows.Forms.TextBox txtAddName;
 		private System.Windows.Forms.TextBox txtAddCategories;
@@ -1254,15 +1247,6 @@
 		private System.Windows.Forms.Label lblAddComment;
 		private System.Windows.Forms.ToolStripMenuItem menuOptions;
 		private System.Windows.Forms.TableLayoutPanel tlpAddButtons;
-		private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-		private System.Windows.Forms.DataGridViewTextBoxColumn recipeName;
-		private System.Windows.Forms.DataGridViewTextBoxColumn recipeRating;
-		private System.Windows.Forms.DataGridViewTextBoxColumn recipeCategory;
-		private System.Windows.Forms.DataGridViewTextBoxColumn recipeServes;
-		private System.Windows.Forms.DataGridViewTextBoxColumn recipeCountry;
-		private System.Windows.Forms.DataGridViewTextBoxColumn recipeIngredients;
-		private System.Windows.Forms.DataGridViewTextBoxColumn recipeComment;
-		private System.Windows.Forms.DataGridViewTextBoxColumn recipeDirections;
 		private System.Windows.Forms.ToolStripMenuItem fileRefresh;
 		private System.Windows.Forms.ToolStripMenuItem optionsAutoNumber;
 		private System.Windows.Forms.ToolStripMenuItem optionsSwitchTab;
@@ -1297,6 +1281,15 @@
 		private System.Windows.Forms.RichTextBox rtbDirections;
 		private System.Windows.Forms.Label lblCountry;
 		private System.Windows.Forms.PrintDialog dlgPrint;
+		private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+		private System.Windows.Forms.DataGridViewTextBoxColumn recipeName;
+		private System.Windows.Forms.DataGridViewTextBoxColumn recipeRating;
+		private System.Windows.Forms.DataGridViewTextBoxColumn recipeCategory;
+		private System.Windows.Forms.DataGridViewTextBoxColumn recipeServes;
+		private System.Windows.Forms.DataGridViewTextBoxColumn recipeCountry;
+		private System.Windows.Forms.DataGridViewTextBoxColumn recipeIngredients;
+		private System.Windows.Forms.DataGridViewTextBoxColumn recipeComment;
+		private System.Windows.Forms.DataGridViewTextBoxColumn recipeDirections;
 	}
 }
 

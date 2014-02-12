@@ -1,4 +1,8 @@
-﻿using System;
+﻿// Rating Control from http://www.codeproject.com/Articles/9117/C-Star-Rating-Control
+// Modified by Abluescarab Designs
+using RatingControl;
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,15 +17,33 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 /*
- * TODO: Add icon
- * TODO: Better rating change form (or just click on rating to change)
- * TODO: Clear View tab after deleting last recipe
+ * TODO: Reselect recipe after loading all recipes
+ * TODO: Save splitter width
  */
 
 namespace recipe_manager {
 	public partial class frmMain : Form {
+		private StarRatingControl ctlRating = new StarRatingControl();
+
 		public frmMain() {
 			InitializeComponent();
+
+			ctlRating.Top = 28;
+			ctlRating.Left = lblCountry.Left;
+			ctlRating.Height = 18;
+			ctlRating.Width = 100;
+
+			ctlRating.GradientBackground = false;
+			ctlRating.BackColor = Color.FromName("Window");
+			ctlRating.SelectedColor = Color.FromArgb(255, 255, 208, 0);
+			ctlRating.HoverColor = Color.Yellow;
+
+			ctlRating.StarSpacing = 5;
+
+			ctlRating.Click += new EventHandler(ctlRating_Click);
+
+			tabView.Controls.Add(ctlRating);
+			ctlRating.BringToFront();
 		}
 
 		#region Main
@@ -38,8 +60,6 @@ namespace recipe_manager {
 			optionsAutoNumber.Checked = Properties.Settings.Default.AutoNumberDirections;
 			optionsSwitchTab.Checked = Properties.Settings.Default.SwitchTabAfterAdd;
 			cmbSearch.SelectedIndex = Properties.Settings.Default.SearchBy;
-
-			lblRating.ForeColor = Color.Orange;
 
 			LoadRecipes();
 
@@ -111,32 +131,26 @@ namespace recipe_manager {
 			}
 		}
 
-		private void lblRating_Click(object sender, EventArgs e) {
-			using(frmRating frmRating = new frmRating(Convert.ToInt32(dgvRecipes.CurrentRow.Cells["RecipeRating"].Value))) {
-				DialogResult result = frmRating.ShowDialog();
+		private void ctlRating_Click(object sender, EventArgs e) {
+			try {
+				using(SqlCeConnection conn = new SqlCeConnection(Properties.Settings.Default.recipesdbConnectionString)) {
+					using(SqlCeCommand cmd = new SqlCeCommand()) {
+						cmd.Connection = conn;
 
-				if(result == DialogResult.OK) {
-					try {
-						using(SqlCeConnection conn = new SqlCeConnection(Properties.Settings.Default.recipesdbConnectionString)) { 
-							using(SqlCeCommand cmd = new SqlCeCommand()) {
-								cmd.Connection = conn;
+						cmd.CommandText = "UPDATE Recipes SET RecipeRating=@rating WHERE ID=@id;";
+						cmd.Parameters.AddWithValue("@rating", SqlDbType.Int).Value = ctlRating.SelectedStar;
+						cmd.Parameters.AddWithValue("@id", SqlDbType.Int).Value = dgvRecipes.CurrentRow.Cells["ID"].Value;
 
-								cmd.CommandText = "UPDATE Recipes SET RecipeRating=@rating WHERE ID=@id;";
-								cmd.Parameters.AddWithValue("@rating", SqlDbType.Int).Value = frmRating.NewRating;
-								cmd.Parameters.AddWithValue("@id", SqlDbType.Int).Value = dgvRecipes.CurrentRow.Cells["ID"].Value;
-
-								conn.Open();
-								cmd.ExecuteNonQuery();
-								conn.Close();
-							}
-						}
-
-						LoadRecipes();
-					}
-					catch(Exception ex) {
-						MessageBox.Show(ex.Message, "Error");
+						conn.Open();
+						cmd.ExecuteNonQuery();
+						conn.Close();
 					}
 				}
+
+				LoadRecipes();
+			}
+			catch(Exception ex) {
+				MessageBox.Show(ex.Message, "Error");
 			}
 		}
 
@@ -346,6 +360,9 @@ namespace recipe_manager {
 
 				tabControl.SelectedTab = tabAdd;
 
+				ctlRating.OutlineColor = Color.DarkGray;
+				ctlRating.SelectedStar = 0;
+
 				AlignLabels();
 			}
 			else {
@@ -404,23 +421,14 @@ namespace recipe_manager {
 
 				lblName.Text           = txtEditName.Text        = row.Cells["RecipeName"].Value.ToString();
 				lblCountry.Text        = txtEditCountry.Text     = row.Cells["RecipeCountry"].Value.ToString();
-				rtbComment.Text       = txtEditComment.Text     = row.Cells["RecipeComment"].Value.ToString();
+				rtbComment.Text        = txtEditComment.Text     = row.Cells["RecipeComment"].Value.ToString();
 				lblCategories.Text     = txtEditCategories.Text  = row.Cells["RecipeCategory"].Value.ToString();
 				rtbIngredients.Text    = rtbEditIngredients.Text = row.Cells["RecipeIngredients"].Value.ToString().Replace("|", Environment.NewLine);
 				rtbEditDirections.Text = row.Cells["RecipeDirections"].Value.ToString().Replace("|", Environment.NewLine);
-				lblServes.Text = row.Cells["RecipeServes"].Value.ToString();
-				numEditServes.Value = Convert.ToInt32(row.Cells["RecipeServes"].Value);
-				numEditRating.Value = Convert.ToInt32(row.Cells["RecipeRating"].Value);
-				lblRating.Text      = "";
-
-				for(int i = 1; i <= 5; i++) {
-					if(i <= Convert.ToInt32(row.Cells["RecipeRating"].Value)) {
-						lblRating.Text += "★";
-					}
-					else {
-						lblRating.Text += "☆";
-					}
-				}
+				lblServes.Text         = row.Cells["RecipeServes"].Value.ToString();
+				numEditServes.Value    = Convert.ToInt32(row.Cells["RecipeServes"].Value);
+				numEditRating.Value    = Convert.ToInt32(row.Cells["RecipeRating"].Value);
+				ctlRating.SelectedStar = Convert.ToInt32(row.Cells["RecipeRating"].Value);
 
 				if(optionsAutoNumber.Checked) {
 					for(int i = 0; i < directionsArray.Length; i++) {
@@ -478,7 +486,7 @@ namespace recipe_manager {
 		/// </summary>
 		private void AlignLabels() {
 			lblCountry.Left = lblName.Left + lblName.Width;
-			lblRating.Left = lblName.Left + lblName.Width;
+			ctlRating.Left = lblName.Left + lblName.Width;
 		}
 
 		/// <summary>

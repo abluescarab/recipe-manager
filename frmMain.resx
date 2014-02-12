@@ -135,24 +135,6 @@
   <metadata name="recipesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>408, 21</value>
   </metadata>
-  <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="recipeIngredients.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="recipeComment.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="recipeDirections.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="recipesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>408, 21</value>
-  </metadata>
-  <metadata name="recipesdbDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>261, 21</value>
-  </metadata>
   <metadata name="recipesdbDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>261, 21</value>
   </metadata>
@@ -162,4 +144,27 @@
   <metadata name="dlgPrint.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 60</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAICAAAAEAIAAZBAAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAAgAAAAIAgGAAAAc3p69AAAA+BJ
+        REFUWIXF1m1Ia2UAB/D/mc4zPdt1oEu9zZFOBfNaYUSBEn6QiiDLXhBnoeaZswlOEb+4Cxcml4l9UOmD
+        iS+bzqvMIUZK4TWo7iVIA8vGggNerrM2Tcu9IXtxO09f7iBuoTeuO/3hgXPgefj/nsPDwwEArK6uAgAc
+        DscnALC2tgbBkixfWloaXl5evmqz2byEEMrhcAjSTz0o/7i0tPSmy+X6UiqVvnNycrKbn5//1NHR0XFr
+        aytJJUBkt9uH6+vrr7tcrq/UavW7gUDg8ytXrpR6vd7faZp+NpXlAEARQqj5+fn7JSUlz3Mcd0epVL63
+        t7dnZxjmDZ/Pd5+m6dr29vZvUwUQrayskKKiogqO4zwKheIVt9u9plAoOoPB4NcymawiFAp9Mzk5+UGq
+        AMkzQNE0/eTx8fGvDMMU+f3+7xiGYUOhkCMtLe1WKBTqkMlkNzo7O00pAQCA1WqlMjIyrgUCgZ+lUmmZ
+        z+e7IxKJvgiHwx/yPA+e58EwzFh3d3dPSgAAwLIsqqurXwwGg99nZWWN+f1+A8/zIISA53kkEgmo1epr
+        Go3GdVkA0d9fpqam0NbWtskwzKsPlyef9/f337qs8n8AkmFZ9rZcLm9NFidHIpEAz/NNKQcAgFarnc3O
+        zr7+oDRZjnA4XCEIAAD0ev3NvLy8GpqmRyQSCUdRFM7OzjA0NDR/mYj/lJGRkbf7+vqIyWS6DQCbm5vC
+        I4aHh1sMBgMZGBj4EQDm5ub+F4Sxq6uL9Pb2OgHAZrMJjzCbzRadTkf0ev0vAGCxWIRHGI3GDZZlSUdH
+        xz0AGBsbEx5hMBg2W1paeJZlvW63O3NwcPCR11IXTzk/hBBQFAWdTvfT6enpM+np6aHa2tpijuNOzGbz
+        hT8z594DjxKKouB0OjExMfEcTdO70WhUtrGx4ZXL5Vd7enou3OBjAwCgsrISdrsd09PTZWKx2BONRsXb
+        29u/ZWZmFmm12nMRlwIAgMbGRoyOjmJ2drZYLBb/GY1GCcdx9yQSydPnrXvsM/BwTCYTqqqqZFar9SAS
+        iTAURUGpVL40Pj7+r1fmpQMAwGg0UoWFhU+sr68fhsNhEEKQk5Pz8sLCwl1BAADQ399PyWSy4q2trd1I
+        JIJEIoGCgoLXFhYW1gUBAEBTUxOVm5tbyXHcTiwWQzweR1lZ2fszMzO3BAEko9FoXvB4PFuJRALxeBzl
+        5eUDFovFLBgAABoaGmoODw/v8jyf/BKfLi4ufiQYAACam5vf5DjuM0II4vE4VCrVjTQhAU6nk6urq/vj
+        4ODgdZFIhFgslikoAAB2dnZ+qKmp8UQiEahUqr6/APysxeB+2qSsAAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>
