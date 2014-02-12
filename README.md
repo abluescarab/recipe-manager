@@ -13,13 +13,35 @@ A free recipe manager that's simple, fast, and easy to use.
 * Print your recipes straight from the program
 
 ## <a name="message"></a>A message to downloaders
-If you run into any problems, please send me an email at [alana@abluescarab.us](mailto:alana@abluescarab.us) or use the [contact page on my website](http://www.abluescarab.us/contact.php). In particular, I'm looking for SQL errors. If your computer has any issues with the SQL database used in this program, please contact me (**make sure to send me the error message, too!**). Feel free to send me feedback, as well! Every bit of feedback will help me improve this program and others.
+If you encounter any errors, please [send me an email](mailto:support@abluescarab.us) or use the [contact form on my website](http://www.abluescarab.us/contact.php). **Make sure to send me the error message!** Also feel free to send me feedback! Every bit of feedback will help me improve my software!
 
 ## <a name="changelog"></a>Changelog
+##### v1.0.0 / 2014-02-12
+Major:
+- Added star rating control
+- Added icon
+
+Minor:
+- Removed RowHeaders
+- Disabled resizing rows
+- Changed default width of "Name" column
+- Removed rating label and rating form
+
+Fix:
+- Resets View tab after deleting last recipe
+
+---
+
 ##### v0.2.0 / 2014-02-12
+Major:
 - Added printing
-- Goes to the Add tab after deleting last recipe
+
+Minor:
 - Updated help file
+- Goes to the Add tab after deleting last recipe
+
+---
 
 ##### v0.1.1 / 2014-01-15
+Minor:
 - Added ColumnWidths setting
