@@ -30,6 +30,9 @@
 			this.filePrint = new System.Windows.Forms.ToolStripMenuItem();
 			this.fileRefresh = new System.Windows.Forms.ToolStripMenuItem();
 			this.fileSep1 = new System.Windows.Forms.ToolStripSeparator();
+			this.fileBackup = new System.Windows.Forms.ToolStripMenuItem();
+			this.fileRestore = new System.Windows.Forms.ToolStripMenuItem();
+			this.fileSep2 = new System.Windows.Forms.ToolStripSeparator();
 			this.fileExit = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuOptions = new System.Windows.Forms.ToolStripMenuItem();
 			this.optionsAutoNumber = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,6 +41,7 @@
 			this.helpAbluescarab = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpGithub = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpSep1 = new System.Windows.Forms.ToolStripSeparator();
+			this.helpUpdates = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpChangelog = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpSep2 = new System.Windows.Forms.ToolStripSeparator();
 			this.helpHelp = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,16 +50,9 @@
 			this.txtSearch = new System.Windows.Forms.TextBox();
 			this.dgvRecipes = new System.Windows.Forms.DataGridView();
 			this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.recipeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.recipeRating = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.recipeCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.recipeServes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.recipeCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.recipeIngredients = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.recipeComment = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.recipeDirections = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.recipesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.recipesdbDataSet = new recipe_manager.recipesdbDataSet();
 			this.cmbSearch = new System.Windows.Forms.ComboBox();
 			this.lblSearch = new System.Windows.Forms.Label();
 			this.tabControl = new System.Windows.Forms.TabControl();
@@ -74,7 +71,7 @@
 			this.lblCategoryLabel = new System.Windows.Forms.Label();
 			this.lblName = new System.Windows.Forms.Label();
 			this.tabEdit = new System.Windows.Forms.TabPage();
-			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
 			this.btnEdit = new System.Windows.Forms.Button();
 			this.btnClearChanges = new System.Windows.Forms.Button();
 			this.txtEditComment = new System.Windows.Forms.TextBox();
@@ -82,7 +79,6 @@
 			this.panelEditDirections = new System.Windows.Forms.Panel();
 			this.rtbEditDirections = new System.Windows.Forms.RichTextBox();
 			this.lblEditDirections = new System.Windows.Forms.Label();
-			this.numEditRating = new System.Windows.Forms.NumericUpDown();
 			this.lblEditIngredients = new System.Windows.Forms.Label();
 			this.panelEditIngredients = new System.Windows.Forms.Panel();
 			this.rtbEditIngredients = new System.Windows.Forms.RichTextBox();
@@ -104,7 +100,6 @@
 			this.panelAddDirections = new System.Windows.Forms.Panel();
 			this.rtbAddDirections = new System.Windows.Forms.RichTextBox();
 			this.lblAddDirections = new System.Windows.Forms.Label();
-			this.numAddRating = new System.Windows.Forms.NumericUpDown();
 			this.lblAddIngredients = new System.Windows.Forms.Label();
 			this.panelAddIngredients = new System.Windows.Forms.Panel();
 			this.rtbAddIngredients = new System.Windows.Forms.RichTextBox();
@@ -117,30 +112,37 @@
 			this.lblAddCategory = new System.Windows.Forms.Label();
 			this.lblAddRating = new System.Windows.Forms.Label();
 			this.lblAddName = new System.Windows.Forms.Label();
-			this.recipesTableAdapter = new recipe_manager.recipesdbDataSetTableAdapters.RecipesTableAdapter();
 			this.dlgPrint = new System.Windows.Forms.PrintDialog();
+			this.dlgBackup = new System.Windows.Forms.SaveFileDialog();
+			this.dlgRestore = new System.Windows.Forms.OpenFileDialog();
+			this.recipeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.recipeRating = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.recipeCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.recipeServes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.recipeCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.recipesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.recipesdbDataSet = new recipe_manager.recipesdbDataSet();
+			this.recipesTableAdapter = new recipe_manager.recipesdbDataSetTableAdapters.RecipesTableAdapter();
 			this.menu.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
 			this.splitContainer.Panel1.SuspendLayout();
 			this.splitContainer.Panel2.SuspendLayout();
 			this.splitContainer.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dgvRecipes)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.recipesBindingSource)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.recipesdbDataSet)).BeginInit();
 			this.tabControl.SuspendLayout();
 			this.tabView.SuspendLayout();
 			this.tabEdit.SuspendLayout();
-			this.tableLayoutPanel1.SuspendLayout();
+			this.tlpButtons.SuspendLayout();
 			this.panelEditDirections.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numEditRating)).BeginInit();
 			this.panelEditIngredients.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numEditServes)).BeginInit();
 			this.tabAdd.SuspendLayout();
 			this.tlpAddButtons.SuspendLayout();
 			this.panelAddDirections.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.numAddRating)).BeginInit();
 			this.panelAddIngredients.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.numAddServes)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.recipesBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.recipesdbDataSet)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// menu
@@ -161,6 +163,9 @@
             this.filePrint,
             this.fileRefresh,
             this.fileSep1,
+            this.fileBackup,
+            this.fileRestore,
+            this.fileSep2,
             this.fileExit});
 			this.menuFile.Name = "menuFile";
 			this.menuFile.Size = new System.Drawing.Size(37, 20);
@@ -171,7 +176,7 @@
 			this.filePrint.Image = global::recipe_manager.Properties.Resources.printer;
 			this.filePrint.Name = "filePrint";
 			this.filePrint.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-			this.filePrint.Size = new System.Drawing.Size(175, 22);
+			this.filePrint.Size = new System.Drawing.Size(184, 22);
 			this.filePrint.Text = "Print";
 			this.filePrint.Click += new System.EventHandler(this.filePrint_Click);
 			// 
@@ -180,21 +185,44 @@
 			this.fileRefresh.Image = global::recipe_manager.Properties.Resources.arrow_refresh;
 			this.fileRefresh.Name = "fileRefresh";
 			this.fileRefresh.ShortcutKeys = System.Windows.Forms.Keys.F5;
-			this.fileRefresh.Size = new System.Drawing.Size(175, 22);
+			this.fileRefresh.Size = new System.Drawing.Size(184, 22);
 			this.fileRefresh.Text = "Refresh Recipes";
 			this.fileRefresh.Click += new System.EventHandler(this.fileRefresh_Click);
 			// 
 			// fileSep1
 			// 
 			this.fileSep1.Name = "fileSep1";
-			this.fileSep1.Size = new System.Drawing.Size(172, 6);
+			this.fileSep1.Size = new System.Drawing.Size(181, 6);
+			// 
+			// fileBackup
+			// 
+			this.fileBackup.Image = global::recipe_manager.Properties.Resources.table_save;
+			this.fileBackup.Name = "fileBackup";
+			this.fileBackup.ShortcutKeys = System.Windows.Forms.Keys.F2;
+			this.fileBackup.Size = new System.Drawing.Size(184, 22);
+			this.fileBackup.Text = "Backup Recipes...";
+			this.fileBackup.Click += new System.EventHandler(this.fileBackup_Click);
+			// 
+			// fileRestore
+			// 
+			this.fileRestore.Image = global::recipe_manager.Properties.Resources.database_table;
+			this.fileRestore.Name = "fileRestore";
+			this.fileRestore.ShortcutKeys = System.Windows.Forms.Keys.F3;
+			this.fileRestore.Size = new System.Drawing.Size(184, 22);
+			this.fileRestore.Text = "Restore Recipes...";
+			this.fileRestore.Click += new System.EventHandler(this.fileRestore_Click);
+			// 
+			// fileSep2
+			// 
+			this.fileSep2.Name = "fileSep2";
+			this.fileSep2.Size = new System.Drawing.Size(181, 6);
 			// 
 			// fileExit
 			// 
 			this.fileExit.Image = global::recipe_manager.Properties.Resources.cross;
 			this.fileExit.Name = "fileExit";
 			this.fileExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-			this.fileExit.Size = new System.Drawing.Size(175, 22);
+			this.fileExit.Size = new System.Drawing.Size(184, 22);
 			this.fileExit.Text = "Exit";
 			this.fileExit.Click += new System.EventHandler(this.fileExit_Click);
 			// 
@@ -233,6 +261,7 @@
             this.helpAbluescarab,
             this.helpGithub,
             this.helpSep1,
+            this.helpUpdates,
             this.helpChangelog,
             this.helpSep2,
             this.helpHelp,
@@ -261,6 +290,16 @@
 			// 
 			this.helpSep1.Name = "helpSep1";
 			this.helpSep1.Size = new System.Drawing.Size(205, 6);
+			// 
+			// helpUpdates
+			// 
+			this.helpUpdates.Image = global::recipe_manager.Properties.Resources.drive;
+			this.helpUpdates.Name = "helpUpdates";
+			this.helpUpdates.ShortcutKeys = System.Windows.Forms.Keys.F4;
+			this.helpUpdates.Size = new System.Drawing.Size(208, 22);
+			this.helpUpdates.Text = "Check for Updates...";
+			this.helpUpdates.Visible = false;
+			this.helpUpdates.Click += new System.EventHandler(this.helpUpdates_Click);
 			// 
 			// helpChangelog
 			// 
@@ -313,7 +352,7 @@
 			this.splitContainer.Panel2.Controls.Add(this.tabControl);
 			this.splitContainer.Panel2MinSize = 350;
 			this.splitContainer.Size = new System.Drawing.Size(891, 445);
-			this.splitContainer.SplitterDistance = 537;
+			this.splitContainer.SplitterDistance = 489;
 			this.splitContainer.TabIndex = 6;
 			// 
 			// txtSearch
@@ -323,7 +362,7 @@
 			this.txtSearch.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.txtSearch.Location = new System.Drawing.Point(200, 1);
 			this.txtSearch.Name = "txtSearch";
-			this.txtSearch.Size = new System.Drawing.Size(334, 23);
+			this.txtSearch.Size = new System.Drawing.Size(286, 23);
 			this.txtSearch.TabIndex = 2;
 			this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
 			// 
@@ -359,7 +398,7 @@
 			this.dgvRecipes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.dgvRecipes.ShowCellErrors = false;
 			this.dgvRecipes.ShowEditingIcon = false;
-			this.dgvRecipes.Size = new System.Drawing.Size(534, 415);
+			this.dgvRecipes.Size = new System.Drawing.Size(486, 415);
 			this.dgvRecipes.TabIndex = 0;
 			this.dgvRecipes.SelectionChanged += new System.EventHandler(this.recipesView_SelectionChanged);
 			this.dgvRecipes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvRecipes_KeyDown);
@@ -371,46 +410,6 @@
 			this.ID.Name = "ID";
 			this.ID.ReadOnly = true;
 			this.ID.Visible = false;
-			// 
-			// recipeName
-			// 
-			this.recipeName.DataPropertyName = "RecipeName";
-			this.recipeName.HeaderText = "Name";
-			this.recipeName.Name = "recipeName";
-			this.recipeName.ReadOnly = true;
-			this.recipeName.Width = 165;
-			// 
-			// recipeRating
-			// 
-			this.recipeRating.DataPropertyName = "RecipeRating";
-			this.recipeRating.HeaderText = "Rating";
-			this.recipeRating.Name = "recipeRating";
-			this.recipeRating.ReadOnly = true;
-			this.recipeRating.Width = 50;
-			// 
-			// recipeCategory
-			// 
-			this.recipeCategory.DataPropertyName = "RecipeCategory";
-			this.recipeCategory.HeaderText = "Categories";
-			this.recipeCategory.Name = "recipeCategory";
-			this.recipeCategory.ReadOnly = true;
-			this.recipeCategory.Width = 150;
-			// 
-			// recipeServes
-			// 
-			this.recipeServes.DataPropertyName = "RecipeServes";
-			this.recipeServes.HeaderText = "Serves";
-			this.recipeServes.Name = "recipeServes";
-			this.recipeServes.ReadOnly = true;
-			this.recipeServes.Width = 50;
-			// 
-			// recipeCountry
-			// 
-			this.recipeCountry.DataPropertyName = "RecipeCountry";
-			this.recipeCountry.HeaderText = "Country";
-			this.recipeCountry.Name = "recipeCountry";
-			this.recipeCountry.ReadOnly = true;
-			this.recipeCountry.Width = 115;
 			// 
 			// recipeIngredients
 			// 
@@ -435,16 +434,6 @@
 			this.recipeDirections.Name = "recipeDirections";
 			this.recipeDirections.ReadOnly = true;
 			this.recipeDirections.Visible = false;
-			// 
-			// recipesBindingSource
-			// 
-			this.recipesBindingSource.DataMember = "Recipes";
-			this.recipesBindingSource.DataSource = this.recipesdbDataSet;
-			// 
-			// recipesdbDataSet
-			// 
-			this.recipesdbDataSet.DataSetName = "recipesdbDataSet";
-			this.recipesdbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
 			// 
 			// cmbSearch
 			// 
@@ -485,7 +474,7 @@
 			this.tabControl.Location = new System.Drawing.Point(3, 0);
 			this.tabControl.Name = "tabControl";
 			this.tabControl.SelectedIndex = 0;
-			this.tabControl.Size = new System.Drawing.Size(347, 445);
+			this.tabControl.Size = new System.Drawing.Size(395, 445);
 			this.tabControl.TabIndex = 3;
 			// 
 			// tabView
@@ -506,7 +495,7 @@
 			this.tabView.Controls.Add(this.lblName);
 			this.tabView.Location = new System.Drawing.Point(4, 25);
 			this.tabView.Name = "tabView";
-			this.tabView.Size = new System.Drawing.Size(339, 416);
+			this.tabView.Size = new System.Drawing.Size(387, 416);
 			this.tabView.TabIndex = 0;
 			this.tabView.Text = "View";
 			this.tabView.UseVisualStyleBackColor = true;
@@ -524,7 +513,7 @@
 			// 
 			this.btnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.btnPrint.Image = global::recipe_manager.Properties.Resources.printer;
-			this.btnPrint.Location = new System.Drawing.Point(311, 36);
+			this.btnPrint.Location = new System.Drawing.Point(359, 36);
 			this.btnPrint.Name = "btnPrint";
 			this.btnPrint.Size = new System.Drawing.Size(25, 25);
 			this.btnPrint.TabIndex = 1;
@@ -539,10 +528,10 @@
 			this.rtbDirections.BackColor = System.Drawing.SystemColors.Window;
 			this.rtbDirections.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.rtbDirections.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.rtbDirections.Location = new System.Drawing.Point(3, 297);
+			this.rtbDirections.Location = new System.Drawing.Point(6, 297);
 			this.rtbDirections.Name = "rtbDirections";
 			this.rtbDirections.ReadOnly = true;
-			this.rtbDirections.Size = new System.Drawing.Size(333, 99);
+			this.rtbDirections.Size = new System.Drawing.Size(378, 99);
 			this.rtbDirections.TabIndex = 4;
 			this.rtbDirections.Text = "";
 			// 
@@ -553,10 +542,10 @@
 			this.rtbIngredients.BackColor = System.Drawing.SystemColors.Window;
 			this.rtbIngredients.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.rtbIngredients.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.rtbIngredients.Location = new System.Drawing.Point(3, 183);
+			this.rtbIngredients.Location = new System.Drawing.Point(6, 183);
 			this.rtbIngredients.Name = "rtbIngredients";
 			this.rtbIngredients.ReadOnly = true;
-			this.rtbIngredients.Size = new System.Drawing.Size(333, 95);
+			this.rtbIngredients.Size = new System.Drawing.Size(378, 95);
 			this.rtbIngredients.TabIndex = 3;
 			this.rtbIngredients.Text = "";
 			// 
@@ -564,7 +553,7 @@
 			// 
 			this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.btnDelete.Image = global::recipe_manager.Properties.Resources.cross;
-			this.btnDelete.Location = new System.Drawing.Point(311, 5);
+			this.btnDelete.Location = new System.Drawing.Point(359, 5);
 			this.btnDelete.Name = "btnDelete";
 			this.btnDelete.Size = new System.Drawing.Size(25, 25);
 			this.btnDelete.TabIndex = 0;
@@ -579,10 +568,10 @@
 			this.rtbComment.BackColor = System.Drawing.SystemColors.Window;
 			this.rtbComment.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.rtbComment.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.rtbComment.Location = new System.Drawing.Point(3, 49);
+			this.rtbComment.Location = new System.Drawing.Point(6, 49);
 			this.rtbComment.Name = "rtbComment";
 			this.rtbComment.ReadOnly = true;
-			this.rtbComment.Size = new System.Drawing.Size(302, 66);
+			this.rtbComment.Size = new System.Drawing.Size(347, 66);
 			this.rtbComment.TabIndex = 2;
 			this.rtbComment.Text = "";
 			// 
@@ -650,7 +639,7 @@
 			// 
 			this.lblName.AutoSize = true;
 			this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblName.Location = new System.Drawing.Point(3, 5);
+			this.lblName.Location = new System.Drawing.Point(0, 5);
 			this.lblName.Name = "lblName";
 			this.lblName.Size = new System.Drawing.Size(178, 31);
 			this.lblName.TabIndex = 6;
@@ -659,12 +648,11 @@
 			// tabEdit
 			// 
 			this.tabEdit.AutoScroll = true;
-			this.tabEdit.Controls.Add(this.tableLayoutPanel1);
+			this.tabEdit.Controls.Add(this.tlpButtons);
 			this.tabEdit.Controls.Add(this.txtEditComment);
 			this.tabEdit.Controls.Add(this.lblEditComment);
 			this.tabEdit.Controls.Add(this.panelEditDirections);
 			this.tabEdit.Controls.Add(this.lblEditDirections);
-			this.tabEdit.Controls.Add(this.numEditRating);
 			this.tabEdit.Controls.Add(this.lblEditIngredients);
 			this.tabEdit.Controls.Add(this.panelEditIngredients);
 			this.tabEdit.Controls.Add(this.numEditServes);
@@ -678,25 +666,25 @@
 			this.tabEdit.Controls.Add(this.lblEditName);
 			this.tabEdit.Location = new System.Drawing.Point(4, 25);
 			this.tabEdit.Name = "tabEdit";
-			this.tabEdit.Size = new System.Drawing.Size(339, 416);
+			this.tabEdit.Size = new System.Drawing.Size(387, 416);
 			this.tabEdit.TabIndex = 1;
 			this.tabEdit.Text = "Edit";
 			this.tabEdit.UseVisualStyleBackColor = true;
 			// 
-			// tableLayoutPanel1
+			// tlpButtons
 			// 
-			this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.tableLayoutPanel1.ColumnCount = 2;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.Controls.Add(this.btnEdit, 0, 0);
-			this.tableLayoutPanel1.Controls.Add(this.btnClearChanges, 1, 0);
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 381);
-			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 1;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(333, 32);
-			this.tableLayoutPanel1.TabIndex = 29;
+			this.tlpButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.tlpButtons.ColumnCount = 2;
+			this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tlpButtons.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tlpButtons.Controls.Add(this.btnEdit, 0, 0);
+			this.tlpButtons.Controls.Add(this.btnClearChanges, 1, 0);
+			this.tlpButtons.Location = new System.Drawing.Point(3, 381);
+			this.tlpButtons.Name = "tlpButtons";
+			this.tlpButtons.RowCount = 1;
+			this.tlpButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tlpButtons.Size = new System.Drawing.Size(381, 32);
+			this.tlpButtons.TabIndex = 29;
 			// 
 			// btnEdit
 			// 
@@ -705,7 +693,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.btnEdit.Location = new System.Drawing.Point(3, 3);
 			this.btnEdit.Name = "btnEdit";
-			this.btnEdit.Size = new System.Drawing.Size(160, 26);
+			this.btnEdit.Size = new System.Drawing.Size(184, 26);
 			this.btnEdit.TabIndex = 0;
 			this.btnEdit.Text = "Edit";
 			this.btnEdit.UseVisualStyleBackColor = true;
@@ -716,9 +704,9 @@
 			this.btnClearChanges.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnClearChanges.Location = new System.Drawing.Point(169, 3);
+			this.btnClearChanges.Location = new System.Drawing.Point(193, 3);
 			this.btnClearChanges.Name = "btnClearChanges";
-			this.btnClearChanges.Size = new System.Drawing.Size(161, 26);
+			this.btnClearChanges.Size = new System.Drawing.Size(185, 26);
 			this.btnClearChanges.TabIndex = 1;
 			this.btnClearChanges.Text = "Clear Changes";
 			this.btnClearChanges.UseVisualStyleBackColor = true;
@@ -730,8 +718,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtEditComment.Location = new System.Drawing.Point(111, 34);
 			this.txtEditComment.Name = "txtEditComment";
-			this.txtEditComment.Size = new System.Drawing.Size(225, 23);
-			this.txtEditComment.TabIndex = 18;
+			this.txtEditComment.Size = new System.Drawing.Size(273, 23);
+			this.txtEditComment.TabIndex = 1;
 			// 
 			// lblEditComment
 			// 
@@ -750,8 +738,8 @@
 			this.panelEditDirections.Controls.Add(this.rtbEditDirections);
 			this.panelEditDirections.Location = new System.Drawing.Point(111, 294);
 			this.panelEditDirections.Name = "panelEditDirections";
-			this.panelEditDirections.Size = new System.Drawing.Size(225, 81);
-			this.panelEditDirections.TabIndex = 28;
+			this.panelEditDirections.Size = new System.Drawing.Size(273, 81);
+			this.panelEditDirections.TabIndex = 7;
 			// 
 			// rtbEditDirections
 			// 
@@ -761,7 +749,7 @@
 			this.rtbEditDirections.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.rtbEditDirections.Location = new System.Drawing.Point(-1, -1);
 			this.rtbEditDirections.Name = "rtbEditDirections";
-			this.rtbEditDirections.Size = new System.Drawing.Size(225, 81);
+			this.rtbEditDirections.Size = new System.Drawing.Size(273, 81);
 			this.rtbEditDirections.TabIndex = 0;
 			this.rtbEditDirections.Text = "";
 			// 
@@ -773,18 +761,6 @@
 			this.lblEditDirections.Size = new System.Drawing.Size(98, 48);
 			this.lblEditDirections.TabIndex = 31;
 			this.lblEditDirections.Text = "Directions:\r\n(one step per\r\nline)";
-			// 
-			// numEditRating
-			// 
-			this.numEditRating.Location = new System.Drawing.Point(111, 92);
-			this.numEditRating.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-			this.numEditRating.Name = "numEditRating";
-			this.numEditRating.Size = new System.Drawing.Size(53, 23);
-			this.numEditRating.TabIndex = 23;
 			// 
 			// lblEditIngredients
 			// 
@@ -803,8 +779,8 @@
 			this.panelEditIngredients.Controls.Add(this.rtbEditIngredients);
 			this.panelEditIngredients.Location = new System.Drawing.Point(111, 207);
 			this.panelEditIngredients.Name = "panelEditIngredients";
-			this.panelEditIngredients.Size = new System.Drawing.Size(225, 81);
-			this.panelEditIngredients.TabIndex = 27;
+			this.panelEditIngredients.Size = new System.Drawing.Size(273, 81);
+			this.panelEditIngredients.TabIndex = 6;
 			// 
 			// rtbEditIngredients
 			// 
@@ -814,7 +790,7 @@
 			this.rtbEditIngredients.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.rtbEditIngredients.Location = new System.Drawing.Point(-1, -1);
 			this.rtbEditIngredients.Name = "rtbEditIngredients";
-			this.rtbEditIngredients.Size = new System.Drawing.Size(225, 81);
+			this.rtbEditIngredients.Size = new System.Drawing.Size(273, 81);
 			this.rtbEditIngredients.TabIndex = 0;
 			this.rtbEditIngredients.Text = "";
 			// 
@@ -822,8 +798,8 @@
 			// 
 			this.numEditServes.Location = new System.Drawing.Point(111, 178);
 			this.numEditServes.Name = "numEditServes";
-			this.numEditServes.Size = new System.Drawing.Size(53, 23);
-			this.numEditServes.TabIndex = 26;
+			this.numEditServes.Size = new System.Drawing.Size(58, 23);
+			this.numEditServes.TabIndex = 5;
 			// 
 			// txtEditCategories
 			// 
@@ -831,8 +807,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtEditCategories.Location = new System.Drawing.Point(111, 121);
 			this.txtEditCategories.Name = "txtEditCategories";
-			this.txtEditCategories.Size = new System.Drawing.Size(225, 23);
-			this.txtEditCategories.TabIndex = 25;
+			this.txtEditCategories.Size = new System.Drawing.Size(273, 23);
+			this.txtEditCategories.TabIndex = 4;
 			// 
 			// txtEditCountry
 			// 
@@ -840,8 +816,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtEditCountry.Location = new System.Drawing.Point(111, 63);
 			this.txtEditCountry.Name = "txtEditCountry";
-			this.txtEditCountry.Size = new System.Drawing.Size(225, 23);
-			this.txtEditCountry.TabIndex = 21;
+			this.txtEditCountry.Size = new System.Drawing.Size(273, 23);
+			this.txtEditCountry.TabIndex = 2;
 			// 
 			// txtEditName
 			// 
@@ -849,8 +825,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtEditName.Location = new System.Drawing.Point(111, 5);
 			this.txtEditName.Name = "txtEditName";
-			this.txtEditName.Size = new System.Drawing.Size(225, 23);
-			this.txtEditName.TabIndex = 17;
+			this.txtEditName.Size = new System.Drawing.Size(273, 23);
+			this.txtEditName.TabIndex = 0;
 			// 
 			// lblEditCountry
 			// 
@@ -905,7 +881,6 @@
 			this.tabAdd.Controls.Add(this.lblAddComment);
 			this.tabAdd.Controls.Add(this.panelAddDirections);
 			this.tabAdd.Controls.Add(this.lblAddDirections);
-			this.tabAdd.Controls.Add(this.numAddRating);
 			this.tabAdd.Controls.Add(this.lblAddIngredients);
 			this.tabAdd.Controls.Add(this.panelAddIngredients);
 			this.tabAdd.Controls.Add(this.numAddServes);
@@ -919,7 +894,7 @@
 			this.tabAdd.Controls.Add(this.lblAddName);
 			this.tabAdd.Location = new System.Drawing.Point(4, 25);
 			this.tabAdd.Name = "tabAdd";
-			this.tabAdd.Size = new System.Drawing.Size(339, 416);
+			this.tabAdd.Size = new System.Drawing.Size(387, 416);
 			this.tabAdd.TabIndex = 2;
 			this.tabAdd.Text = "Add";
 			this.tabAdd.UseVisualStyleBackColor = true;
@@ -936,7 +911,7 @@
 			this.tlpAddButtons.Name = "tlpAddButtons";
 			this.tlpAddButtons.RowCount = 1;
 			this.tlpAddButtons.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tlpAddButtons.Size = new System.Drawing.Size(333, 32);
+			this.tlpAddButtons.Size = new System.Drawing.Size(381, 32);
 			this.tlpAddButtons.TabIndex = 9;
 			// 
 			// btnAdd
@@ -946,7 +921,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.btnAdd.Location = new System.Drawing.Point(3, 3);
 			this.btnAdd.Name = "btnAdd";
-			this.btnAdd.Size = new System.Drawing.Size(160, 26);
+			this.btnAdd.Size = new System.Drawing.Size(184, 26);
 			this.btnAdd.TabIndex = 0;
 			this.btnAdd.Text = "Add";
 			this.btnAdd.UseVisualStyleBackColor = true;
@@ -957,9 +932,9 @@
 			this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnClear.Location = new System.Drawing.Point(169, 3);
+			this.btnClear.Location = new System.Drawing.Point(193, 3);
 			this.btnClear.Name = "btnClear";
-			this.btnClear.Size = new System.Drawing.Size(161, 26);
+			this.btnClear.Size = new System.Drawing.Size(185, 26);
 			this.btnClear.TabIndex = 1;
 			this.btnClear.Text = "Clear";
 			this.btnClear.UseVisualStyleBackColor = true;
@@ -971,7 +946,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtAddComment.Location = new System.Drawing.Point(111, 34);
 			this.txtAddComment.Name = "txtAddComment";
-			this.txtAddComment.Size = new System.Drawing.Size(225, 23);
+			this.txtAddComment.Size = new System.Drawing.Size(273, 23);
 			this.txtAddComment.TabIndex = 1;
 			// 
 			// lblAddComment
@@ -991,7 +966,7 @@
 			this.panelAddDirections.Controls.Add(this.rtbAddDirections);
 			this.panelAddDirections.Location = new System.Drawing.Point(111, 294);
 			this.panelAddDirections.Name = "panelAddDirections";
-			this.panelAddDirections.Size = new System.Drawing.Size(225, 81);
+			this.panelAddDirections.Size = new System.Drawing.Size(273, 81);
 			this.panelAddDirections.TabIndex = 8;
 			// 
 			// rtbAddDirections
@@ -1002,7 +977,7 @@
 			this.rtbAddDirections.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.rtbAddDirections.Location = new System.Drawing.Point(-1, -1);
 			this.rtbAddDirections.Name = "rtbAddDirections";
-			this.rtbAddDirections.Size = new System.Drawing.Size(225, 81);
+			this.rtbAddDirections.Size = new System.Drawing.Size(273, 81);
 			this.rtbAddDirections.TabIndex = 0;
 			this.rtbAddDirections.Text = "";
 			// 
@@ -1014,18 +989,6 @@
 			this.lblAddDirections.Size = new System.Drawing.Size(98, 48);
 			this.lblAddDirections.TabIndex = 13;
 			this.lblAddDirections.Text = "Directions:\r\n(one step per\r\nline)";
-			// 
-			// numAddRating
-			// 
-			this.numAddRating.Location = new System.Drawing.Point(111, 92);
-			this.numAddRating.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-			this.numAddRating.Name = "numAddRating";
-			this.numAddRating.Size = new System.Drawing.Size(53, 23);
-			this.numAddRating.TabIndex = 3;
 			// 
 			// lblAddIngredients
 			// 
@@ -1044,7 +1007,7 @@
 			this.panelAddIngredients.Controls.Add(this.rtbAddIngredients);
 			this.panelAddIngredients.Location = new System.Drawing.Point(111, 207);
 			this.panelAddIngredients.Name = "panelAddIngredients";
-			this.panelAddIngredients.Size = new System.Drawing.Size(225, 81);
+			this.panelAddIngredients.Size = new System.Drawing.Size(273, 81);
 			this.panelAddIngredients.TabIndex = 6;
 			// 
 			// rtbAddIngredients
@@ -1055,7 +1018,7 @@
 			this.rtbAddIngredients.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.rtbAddIngredients.Location = new System.Drawing.Point(-1, -1);
 			this.rtbAddIngredients.Name = "rtbAddIngredients";
-			this.rtbAddIngredients.Size = new System.Drawing.Size(225, 81);
+			this.rtbAddIngredients.Size = new System.Drawing.Size(273, 81);
 			this.rtbAddIngredients.TabIndex = 0;
 			this.rtbAddIngredients.Text = "";
 			// 
@@ -1063,7 +1026,7 @@
 			// 
 			this.numAddServes.Location = new System.Drawing.Point(111, 178);
 			this.numAddServes.Name = "numAddServes";
-			this.numAddServes.Size = new System.Drawing.Size(53, 23);
+			this.numAddServes.Size = new System.Drawing.Size(58, 23);
 			this.numAddServes.TabIndex = 5;
 			// 
 			// txtAddCategories
@@ -1072,7 +1035,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtAddCategories.Location = new System.Drawing.Point(111, 121);
 			this.txtAddCategories.Name = "txtAddCategories";
-			this.txtAddCategories.Size = new System.Drawing.Size(225, 23);
+			this.txtAddCategories.Size = new System.Drawing.Size(273, 23);
 			this.txtAddCategories.TabIndex = 4;
 			// 
 			// txtAddCountry
@@ -1081,7 +1044,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtAddCountry.Location = new System.Drawing.Point(111, 63);
 			this.txtAddCountry.Name = "txtAddCountry";
-			this.txtAddCountry.Size = new System.Drawing.Size(225, 23);
+			this.txtAddCountry.Size = new System.Drawing.Size(273, 23);
 			this.txtAddCountry.TabIndex = 2;
 			// 
 			// txtAddName
@@ -1090,7 +1053,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtAddName.Location = new System.Drawing.Point(111, 5);
 			this.txtAddName.Name = "txtAddName";
-			this.txtAddName.Size = new System.Drawing.Size(225, 23);
+			this.txtAddName.Size = new System.Drawing.Size(273, 23);
 			this.txtAddName.TabIndex = 0;
 			// 
 			// lblAddCountry
@@ -1138,13 +1101,77 @@
 			this.lblAddName.TabIndex = 0;
 			this.lblAddName.Text = "Name:";
 			// 
-			// recipesTableAdapter
-			// 
-			this.recipesTableAdapter.ClearBeforeFill = true;
-			// 
 			// dlgPrint
 			// 
 			this.dlgPrint.UseEXDialog = true;
+			// 
+			// dlgBackup
+			// 
+			this.dlgBackup.DefaultExt = "*.bak";
+			this.dlgBackup.Filter = "BAK Files|*.bak";
+			this.dlgBackup.Title = "Backup Recipes";
+			this.dlgBackup.FileOk += new System.ComponentModel.CancelEventHandler(this.dlgBackup_FileOk);
+			// 
+			// dlgRestore
+			// 
+			this.dlgRestore.DefaultExt = "*.bak";
+			this.dlgRestore.Filter = "BAK Files|*.bak";
+			this.dlgRestore.SupportMultiDottedExtensions = true;
+			this.dlgRestore.FileOk += new System.ComponentModel.CancelEventHandler(this.dlgRestore_FileOk);
+			// 
+			// recipeName
+			// 
+			this.recipeName.DataPropertyName = "RecipeName";
+			this.recipeName.HeaderText = "Name";
+			this.recipeName.Name = "recipeName";
+			this.recipeName.ReadOnly = true;
+			this.recipeName.Width = 150;
+			// 
+			// recipeRating
+			// 
+			this.recipeRating.DataPropertyName = "RecipeRating";
+			this.recipeRating.HeaderText = "Rating";
+			this.recipeRating.Name = "recipeRating";
+			this.recipeRating.ReadOnly = true;
+			this.recipeRating.Width = 50;
+			// 
+			// recipeCategory
+			// 
+			this.recipeCategory.DataPropertyName = "RecipeCategory";
+			this.recipeCategory.HeaderText = "Categories";
+			this.recipeCategory.Name = "recipeCategory";
+			this.recipeCategory.ReadOnly = true;
+			this.recipeCategory.Width = 115;
+			// 
+			// recipeServes
+			// 
+			this.recipeServes.DataPropertyName = "RecipeServes";
+			this.recipeServes.HeaderText = "Serves";
+			this.recipeServes.Name = "recipeServes";
+			this.recipeServes.ReadOnly = true;
+			this.recipeServes.Width = 50;
+			// 
+			// recipeCountry
+			// 
+			this.recipeCountry.DataPropertyName = "RecipeCountry";
+			this.recipeCountry.HeaderText = "Country";
+			this.recipeCountry.Name = "recipeCountry";
+			this.recipeCountry.ReadOnly = true;
+			this.recipeCountry.Width = 115;
+			// 
+			// recipesBindingSource
+			// 
+			this.recipesBindingSource.DataMember = "Recipes";
+			this.recipesBindingSource.DataSource = this.recipesdbDataSet;
+			// 
+			// recipesdbDataSet
+			// 
+			this.recipesdbDataSet.DataSetName = "recipesdbDataSet";
+			this.recipesdbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+			// 
+			// recipesTableAdapter
+			// 
+			this.recipesTableAdapter.ClearBeforeFill = true;
 			// 
 			// frmMain
 			// 
@@ -1161,7 +1188,6 @@
 			this.Text = "Recipe Manager";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
 			this.Load += new System.EventHandler(this.frmMain_Load);
-			this.Resize += new System.EventHandler(this.frmMain_Resize);
 			this.menu.ResumeLayout(false);
 			this.menu.PerformLayout();
 			this.splitContainer.Panel1.ResumeLayout(false);
@@ -1170,25 +1196,23 @@
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
 			this.splitContainer.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dgvRecipes)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.recipesBindingSource)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.recipesdbDataSet)).EndInit();
 			this.tabControl.ResumeLayout(false);
 			this.tabView.ResumeLayout(false);
 			this.tabView.PerformLayout();
 			this.tabEdit.ResumeLayout(false);
 			this.tabEdit.PerformLayout();
-			this.tableLayoutPanel1.ResumeLayout(false);
+			this.tlpButtons.ResumeLayout(false);
 			this.panelEditDirections.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.numEditRating)).EndInit();
 			this.panelEditIngredients.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.numEditServes)).EndInit();
 			this.tabAdd.ResumeLayout(false);
 			this.tabAdd.PerformLayout();
 			this.tlpAddButtons.ResumeLayout(false);
 			this.panelAddDirections.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.numAddRating)).EndInit();
 			this.panelAddIngredients.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.numAddServes)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.recipesBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.recipesdbDataSet)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -1237,7 +1261,6 @@
 		private System.Windows.Forms.RichTextBox rtbAddIngredients;
 		private System.Windows.Forms.Panel panelAddIngredients;
 		private System.Windows.Forms.Label lblAddIngredients;
-		private System.Windows.Forms.NumericUpDown numAddRating;
 		private System.Windows.Forms.Panel panelAddDirections;
 		private System.Windows.Forms.RichTextBox rtbAddDirections;
 		private System.Windows.Forms.Label lblAddDirections;
@@ -1250,7 +1273,7 @@
 		private System.Windows.Forms.ToolStripMenuItem fileRefresh;
 		private System.Windows.Forms.ToolStripMenuItem optionsAutoNumber;
 		private System.Windows.Forms.ToolStripMenuItem optionsSwitchTab;
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+		private System.Windows.Forms.TableLayoutPanel tlpButtons;
 		private System.Windows.Forms.Button btnEdit;
 		private System.Windows.Forms.Button btnClearChanges;
 		private System.Windows.Forms.TextBox txtEditComment;
@@ -1258,7 +1281,6 @@
 		private System.Windows.Forms.Panel panelEditDirections;
 		private System.Windows.Forms.RichTextBox rtbEditDirections;
 		private System.Windows.Forms.Label lblEditDirections;
-		private System.Windows.Forms.NumericUpDown numEditRating;
 		private System.Windows.Forms.Label lblEditIngredients;
 		private System.Windows.Forms.Panel panelEditIngredients;
 		private System.Windows.Forms.RichTextBox rtbEditIngredients;
@@ -1290,6 +1312,12 @@
 		private System.Windows.Forms.DataGridViewTextBoxColumn recipeIngredients;
 		private System.Windows.Forms.DataGridViewTextBoxColumn recipeComment;
 		private System.Windows.Forms.DataGridViewTextBoxColumn recipeDirections;
+		private System.Windows.Forms.ToolStripMenuItem helpUpdates;
+		private System.Windows.Forms.ToolStripMenuItem fileBackup;
+		private System.Windows.Forms.ToolStripSeparator fileSep2;
+		private System.Windows.Forms.SaveFileDialog dlgBackup;
+		private System.Windows.Forms.OpenFileDialog dlgRestore;
+		private System.Windows.Forms.ToolStripMenuItem fileRestore;
 	}
 }
 

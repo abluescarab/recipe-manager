@@ -71,7 +71,22 @@ namespace recipe_manager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to 2.0.0
+        ///=====
+        ///   Date: 2014-
+        ///----------------------------------------------------------
+        ///- Replaced rating controls in Edit/Add tabs with star rating controls
+        ///- Changed default width of right side
+        ///- Saves window state (maximized, normal)
+        ///- Saves window location
+        ///- Saves sort order
+        ///- Saves selected row when reloading recipes
+        ///- Only saves window size when form is closing
+        ///- Allows error messages to be copied
+        ///- Changed assembly (executable) name to RecipeManager
+        ///- Changed platform target to x86
+        ///
+        ///Fixe [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string changelog {
             get {
@@ -85,6 +100,26 @@ namespace recipe_manager.Properties {
         internal static System.Drawing.Bitmap cross {
             get {
                 object obj = ResourceManager.GetObject("cross", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap database_table {
+            get {
+                object obj = ResourceManager.GetObject("database_table", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap drive {
+            get {
+                object obj = ResourceManager.GetObject("drive", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -199,6 +234,16 @@ namespace recipe_manager.Properties {
         internal static System.Drawing.Bitmap scarab {
             get {
                 object obj = ResourceManager.GetObject("scarab", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap table_save {
+            get {
+                object obj = ResourceManager.GetObject("table_save", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

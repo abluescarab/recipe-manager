@@ -26,7 +26,25 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="ColumnWidths" Type="System.String" Scope="User">
-      <Value Profile="(Default)">125,50,150,50,115</Value>
+      <Value Profile="(Default)">150,50,115,50,115</Value>
+    </Setting>
+    <Setting Name="WindowLocation" Type="System.String" Scope="User">
+      <Value Profile="(Default)">0,0</Value>
+    </Setting>
+    <Setting Name="FirstRun" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="IsMaximized" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="SortOrder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1,0</Value>
+    </Setting>
+    <Setting Name="BackupDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="RestoreDirectory" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>
