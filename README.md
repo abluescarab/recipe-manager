@@ -37,6 +37,7 @@ If you encounter any errors, please [send me an email](mailto:support@abluescara
 - Fixed tab indices in Edit tab
 - Fixed ID error when adding new recipes
 - Fixed assembly version
+
 ---
 
 ##### v1.0.0 / 2014-02-12
